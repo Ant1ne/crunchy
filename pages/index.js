@@ -20,8 +20,8 @@ export default function Home() {
 
   useEffect(()=>{
     if(userLocation)
-      getNearByPlace('');
-    
+      getNearByPlace('restaurants');
+
   },[userLocation])
 
 
