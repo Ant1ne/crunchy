@@ -24,14 +24,13 @@ function GoogleMap_() {
             center={
               !selectedBusiness.name
                 ? {
-                    lat: +userLocation.lat,
-                    lng: +userLocation.lng,
+                    lat: parseFloat(userLocation.lat),
+                    lng: parseFloat(userLocation.lng),
                   }
                 : selectedBusiness.geometry.location
             }
             zoom={selectedBusiness.name ? 15 : 10}
           >
-            {/* Child components, such as markers, info windows, etc. */}
             <>
               <Marker userLocation={userLocation} />
             </>

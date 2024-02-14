@@ -8,8 +8,7 @@ function SearchBar() {
   const { businessList, setBusinessList } = useContext(BusinessListContext);
 
   const searchPlace = (searchText) => {
-    GlobalApi.searchPlace(searchText, userLocation.lat, userLocation.lng)
-    .then(
+    GlobalApi.searchPlace(searchText, userLocation.lat, userLocation.lng).then(
       (resp) => setBusinessList(resp.data.candidates)
     );
   };

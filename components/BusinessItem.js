@@ -1,12 +1,14 @@
 import React from "react";
 import Image from "next/image";
 
-function BusinessItem({business}) {
-    const GOOGLE_API_KEY=process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
-    const photo_ref=business?.photos?business?.photos[0]?.photo_reference:''
+function BusinessItem({ business }) {
+  const GOOGLE_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
+  const photo_ref = business?.photos
+    ? business?.photos[0]?.photo_reference
+    : "";
 
   return (
-    <div className="flex gap-3 p-3 border-b-[1px] border-teal-600 mb-4 items-center">
+    <div className="flex gap-3 p-3 border-b-[1px] border-teal-800 mb-4 items-center">
       <Image
         src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photo_ref}&key=${GOOGLE_API_KEY}`}
         alt="business-image"

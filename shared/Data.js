@@ -19,4 +19,4 @@ const CategoryListData = [
   },
 ];
 
-export default {CategoryListData}
+export default { CategoryListData };

@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect, useContext } from "react";
 
 import SideNavBar from "../components/SideNavBar";
@@ -13,17 +14,13 @@ import BusinessSquare from "../components/BusinessSquare";
 
 export default function Home() {
   const [businessList, setBusinessList] = useState([]);
-  const [selectedBusiness,setSelectedBusiness]=useState([]);
+  const [selectedBusiness, setSelectedBusiness] = useState([]);
 
-  const {userLocation,setUserLocation}
-  =useContext(UserLocationContext)
+  const { userLocation, setUserLocation } = useContext(UserLocationContext);
 
-  useEffect(()=>{
-    if(userLocation)
-      getNearByPlace('restaurants');
-
-  },[userLocation])
-
+  useEffect(() => {
+    if (userLocation) getNearByPlace("restaurants");
+  }, [userLocation]);
 
   const getNearByPlace = (category) => {
     GlobalApi.getNearByPlace(
@@ -37,24 +34,24 @@ export default function Home() {
 
   return (
     <div className="flex">
-      <SelectedBusinessContext.Provider value={{selectedBusiness,setSelectedBusiness}}>
-      <BusinessListContext.Provider value={{businessList,setBusinessList}}>
-      <SideNavBar />
-      <div className="grid grid-cols-1 md:grid-cols-2 px-6 md:px-10 w-full mt-10 gap-8">
-        <div>
-          {/* Search Bar  */}
-          <SearchBar />
-          {/* Category List */}
-          <CategoryList setSelectedCategory={(category)=>getNearByPlace(category)} />
-          {/* Business List */}
-          <BusinessList businessListData={businessList} />
-        </div>
-        {/* Google Maps  */}
-        <div className="order-first md:order-last">
-          <GoogleMap_ />
-        </div>
-      </div>
-      </BusinessListContext.Provider>
+      <SelectedBusinessContext.Provider
+        value={{ selectedBusiness, setSelectedBusiness }}
+      >
+        <BusinessListContext.Provider value={{ businessList, setBusinessList }}>
+          <SideNavBar />
+          <div className="grid grid-cols-1 md:grid-cols-2 px-6 md:px-10 w-full mt-10 gap-8">
+            <div>
+              <SearchBar />
+              <CategoryList
+                setSelectedCategory={(category) => getNearByPlace(category)}
+              />
+              <BusinessList businessListData={businessList} />
+            </div>
+            <div className="order-first md:order-last">
+              <GoogleMap_ />
+            </div>
+          </div>
+        </BusinessListContext.Provider>
       </SelectedBusinessContext.Provider>
     </div>
   );
