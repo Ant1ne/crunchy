@@ -4,6 +4,8 @@ import { UserLocationContext } from "../context/UserLocationContext";
 import Marker from "./Marker";
 import { SelectedBusinessContext } from "../context/SelectedBusinessContext";
 
+const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
+
 function GoogleMap_() {
   const { userLocation, setUserLocation } = useContext(UserLocationContext);
   const { selectedBusiness, setSelectedBusiness } = useContext(
@@ -16,7 +18,7 @@ function GoogleMap_() {
   };
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
+    googleMapsApiKey: GOOGLE_MAPS_API_KEY,
   });
 
   if (!isLoaded) return <div>Loading...</div>;
