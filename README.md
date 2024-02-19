@@ -1,41 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🗺️ Crunchy - Find Nearby Places App
+Crunchy is a "find nearby places" app built with Next.js, React.js, JavaScript, Tailwind CSS, Google Places API, and Google Maps API.
 
-## Getting Started
+Why this stack? I have decided to use Next.js to render the pages statically, React.js to build the user interface, JavaScript, Tailwind CSS to style the application, and Google Places API and Google Maps to power the search functionality.
 
-First, run the development server:
+## 🚀 Features
+- View bars, restaurants or cafés nearby your location
+- Search bars, restaurants or cafés with the search bar
+- Navigate the map provided by Google Maps
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🧰 Main Technologies
+- Next.js
+- React.js
+- JavaScript,
+- Tailwind CSS
+- Google Places API
+- Google Maps API
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💻 Process
+I started by writing down in my notebook what features I wanted.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+I obviously started by setting up Next.js and the folder strucutre, then continued with the Tailwind CSS. Next, I set up the Side Nav Bar, the Search Bar, and the Category List, then focused on the Business List component.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Then it was the bigger part of the project, generate the Google Places API and getting and fetching places from the API. I then added the Shimmer Effect to give the impression of data loading.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The most challenging part was figuring out how to calculate the distance. One new thing I learned was indexing in Google Places API. That was new to me and something I can take with me into the future.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🚦 Running the project
+To run the project in your local environment, follow these steps:
 
-## Learn More
+1. Clone the repository to your local machine.
+2. Run npm install or yarn in the project directory to install the required dependencies.
+3. Run npm run start or yarn start to get the project started.
+4. Open http://localhost:3000 (or the address shown in your console) in your web browser to view the app.
 
-To learn more about Next.js, take a look at the following resources:
+## 📸 - Demo Image
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Screenshot 2024-02-15 at 15 20 57](https://github.com/Ant1ne/crunchy/assets/110994502/b55ababa-cfd3-412f-b2ed-d93ee181ca6a)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# crunchy
