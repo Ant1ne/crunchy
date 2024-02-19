@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
-import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 import { UserLocationContext } from "../context/UserLocationContext";
 import Marker from "./Marker";
 import { SelectedBusinessContext } from "../context/SelectedBusinessContext";
-
-const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
 
 function GoogleMap_() {
   const { userLocation, setUserLocation } = useContext(UserLocationContext);
@@ -16,6 +14,12 @@ function GoogleMap_() {
     height: "500px",
     borderRadius: 20,
   };
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
+  });
+
+  if (!isLoaded) return <div>Loading...</div>;
 
   if (!userLocation) {
     return null;
@@ -31,7 +35,7 @@ function GoogleMap_() {
 
   return (
     <div>
-      <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
+      <useLoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
@@ -39,7 +43,7 @@ function GoogleMap_() {
         >
           <Marker userLocation={userLocation} />
         </GoogleMap>
-      </LoadScript>
+      </useLoadScript>
     </div>
   );
 }
