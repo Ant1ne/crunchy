@@ -37,15 +37,13 @@ function GoogleMap_() {
 
   return (
     <div>
-      <useLoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={selectedBusiness ? 15 : 10}
-        >
-          <Marker userLocation={userLocation} />
-        </GoogleMap>
-      </useLoadScript>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={selectedBusiness ? 15 : 10}
+      >
+        <Marker userLocation={userLocation} />
+      </GoogleMap>
     </div>
   );
 }
